@@ -8,6 +8,8 @@ authors = ["Squirrel Torque Studio"]
 python = "^3.10"
 aiohttp = "^3.8.1"
 bs4 = "^0.0.1"
+SQLAlchemy = "^1.4.27"
+pydantic = "^1.8.2"
 
 [tool.poetry.dev-dependencies]
 

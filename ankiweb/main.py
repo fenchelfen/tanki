@@ -3,6 +3,8 @@ import asyncio
 import aiohttp
 from bs4 import BeautifulSoup
 
+import models
+
 
 class Client:
     default_headers = {
@@ -25,7 +27,6 @@ class Client:
             'accept-language': 'en-US,en;q=0.9,ru-RU;q=0.8,ru;q=0.7',
             'cookie': 'ankiweb=login',
         }
-
         data = {
             'submitted': '1',
             'csrf_token': await self._get_csrftoken(),
@@ -70,6 +71,7 @@ async def main():
 
 
 if __name__ == '__main__':
+    models.Base.metadata.create_all(bind=models.engine)
     loop = asyncio.get_event_loop()
     loop.run_until_complete(main())
     loop.close()
